@@ -1,0 +1,9 @@
+# Write your MySQL query stateme
+
+SELECT uni.unique_id, uni.name
+FROM (
+    SELECT e.name, u.unique_id
+    FROM Employees AS e
+    LEFT JOIN EmployeeUNI AS u
+    ON e.id = u.id
+) AS uni;
