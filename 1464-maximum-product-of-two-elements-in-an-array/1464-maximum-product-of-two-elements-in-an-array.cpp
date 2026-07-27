@@ -1,12 +1,25 @@
+// OPTIMISED APPORACH 
+
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
         int n = nums.size() ;
+        int max = INT_MIN ;
+        int max2 = INT_MIN ;
 
-        sort (nums.begin() , nums.end() ) ;
+        for ( int a : nums )
+        {
+            if ( a > max )
+            {
+                max2 = max ;
+                max = a ;
+            }else if ( a > max2)
+            {
+                max2 = a ;
+            }
+        }
 
-        int product = (nums[n-1]-1) * (nums[n-2]-1) ;
+        return (max-1)*(max2-1) ;
 
-        return product ;
     }
 };
